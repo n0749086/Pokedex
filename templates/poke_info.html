@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>なまえ：{{ name }}</h3>
+<table class="uk-table uk-table-striped uk-table-small uk-table-justify uk-table-responsive">
+<tbody>
+    <tr>
+        <td>HP</td>
+        <td>{{ hp_val }}</td>
+    </tr>
+    <tr>
+        <td>こうげき</td>
+        <td>{{ atk_val }}</td>
+    </tr>
+    <tr>
+        <td>ぼうぎょ</td>
+        <td>{{ def_val }}</td>
+    </tr>
+    <tr>
+        <td>とくこう</td>
+        <td>{{ sp_atk_val }}</td>
+    </tr>
+    <tr>
+        <td>ぼうぎょ</td>
+        <td>{{ sp_def_val }}</td>
+    </tr>
+    <tr>
+        <td>すばやさ</td>
+        <td>{{ spd_val }}</td>
+    </tr>
+</tbody>
+</table>
+{% endblock %}
