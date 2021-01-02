@@ -9,13 +9,15 @@ class Pokedex:
 
     #図鑑番号,ポケモン名,タイプ１,タイプ２,通常特性１,通常特性２,夢特性,HP,こうげき,ぼうぎょ,とくこう,とくぼう,すばやさ,合計
     def load_poke_data_csv(self):
+        self.poke_list = {}
+        self.poke_name_list = []
         with open("pokemon_status.csv") as f:
             reader = csv.reader(f)
             next(reader)
             data = {}
             for row in reader:
                 data["no"] = row[0]
-                name = row[1]
+                name = row[1].replace("\r", "").replace("\n", "")
                 data["type1"] = row[2]
                 data["type2"] = row[3]
                 data["abi1"] = row[4]
