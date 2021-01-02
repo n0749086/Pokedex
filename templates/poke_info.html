@@ -1,92 +1,96 @@
 {% extends "layout.html" %}
 {% block content %}
 <h3>{{ title }}</h3>
-<table class="uk-table uk-table-striped uk-table-small uk-table-justify uk-table-responsive">
-<tbody>
-    <tr>
-        <td>なまえ</td>
-        {% for item in info -%}
-        <td>{{ item.name }}</td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>HP</td>
-        {% for item in info -%}
-        <td>{{ item.HP }}</td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>こうげき</td>
-        {% for item in info -%}
-        <td>{{ item.ATK }}
-        {% if item.ATK >= item.S_ATK %}
-        <span uk-icon="icon: star"></span>
-        {% endif %}
-        </td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>ぼうぎょ</td>
-        {% for item in info -%}
-        <td>{{ item.DEF }}
-        {% if item.DEF >= item.S_DEF %}
-        <span uk-icon="icon: star"></span>
-        {% endif %}
-        </td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>とくこう</td>
-        {% for item in info -%}
-        <td>{{ item.S_ATK }}
-        {% if item.ATK <= item.S_ATK %}
-        <span uk-icon="icon: star"></span>
-        {% endif %}
-        </td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>とくぼう</td>
-        {% for item in info -%}
-        <td>{{ item.S_DEF }}
-        {% if item.DEF <= item.S_DEF %}
-        <span uk-icon="icon: star"></span>
-        {% endif %}
-        </td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>すばやさ</td>
-        {% for item in info -%}
-        <td>{{ item.SPD }}</td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>とくせい</td>
-        {% for item in info -%}
-        <td>{{ item.abi1 }}</td>
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>とくせい2</td>
-        {% for item in info -%}
-            {% if item.abi2 %}
-            <td>{{ item.abi2 }}</td>
-            {% else %}
-            <td>-</td>
+<div class="uk-overflow-auto">
+    <table class="uk-table uk-table-striped uk-table-small">
+    <thead>
+        <tr>
+            <td>なまえ</td>
+            {% for item in info -%}
+            <td>{{ item.name }}</td>
+            {%- endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>HP</td>
+            {% for item in info -%}
+            <td>{{ item.HP }}</td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>こうげき</td>
+            {% for item in info -%}
+            <td>{{ item.ATK }}
+            {% if item.ATK >= item.S_ATK %}
+            <span uk-icon="icon: star"></span>
             {% endif %}
-        {%- endfor %}
-    </tr>
-    <tr>
-        <td>とくせい(夢))</td>
-        {% for item in info -%}
-            {% if item.abiD %}
-            <td>{{ item.abiD }}</td>
-            {% else %}
-            <td>-</td>
+            </td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>ぼうぎょ</td>
+            {% for item in info -%}
+            <td>{{ item.DEF }}
+            {% if item.DEF >= item.S_DEF %}
+            <span uk-icon="icon: star"></span>
             {% endif %}
-        {%- endfor %}
-    </tr>
-</tbody>
-</table>
+            </td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>とくこう</td>
+            {% for item in info -%}
+            <td>{{ item.S_ATK }}
+            {% if item.ATK <= item.S_ATK %}
+            <span uk-icon="icon: star"></span>
+            {% endif %}
+            </td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>とくぼう</td>
+            {% for item in info -%}
+            <td>{{ item.S_DEF }}
+            {% if item.DEF <= item.S_DEF %}
+            <span uk-icon="icon: star"></span>
+            {% endif %}
+            </td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>すばやさ</td>
+            {% for item in info -%}
+            <td>{{ item.SPD }}</td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>とくせい</td>
+            {% for item in info -%}
+            <td>{{ item.abi1 }}</td>
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>とくせい2</td>
+            {% for item in info -%}
+                {% if item.abi2 %}
+                <td>{{ item.abi2 }}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
+            {%- endfor %}
+        </tr>
+        <tr>
+            <td>とくせい(夢))</td>
+            {% for item in info -%}
+                {% if item.abiD %}
+                <td>{{ item.abiD }}</td>
+                {% else %}
+                <td>-</td>
+                {% endif %}
+            {%- endfor %}
+        </tr>
+    </tbody>
+    </table>
+</div>
 {% endblock %}
