@@ -18,25 +18,41 @@
     <tr>
         <td>こうげき</td>
         {% for item in info -%}
-        <td>{{ item.ATK }}</td>
+        <td>{{ item.ATK }}
+        {% if item.ATK >= item.S_ATK %}
+        <span uk-icon="icon: star"></span>
+        {% endif %}
+        </td>
         {%- endfor %}
     </tr>
     <tr>
         <td>ぼうぎょ</td>
         {% for item in info -%}
-        <td>{{ item.DEF }}</td>
+        <td>{{ item.DEF }}
+        {% if item.DEF >= item.S_DEF %}
+        <span uk-icon="icon: star"></span>
+        {% endif %}
+        </td>
         {%- endfor %}
     </tr>
     <tr>
         <td>とくこう</td>
         {% for item in info -%}
-        <td>{{ item.S_ATK }}</td>
+        <td>{{ item.S_ATK }}
+        {% if item.ATK <= item.S_ATK %}
+        <span uk-icon="icon: star"></span>
+        {% endif %}
+        </td>
         {%- endfor %}
     </tr>
     <tr>
-        <td>ぼうぎょ</td>
+        <td>とくぼう</td>
         {% for item in info -%}
-        <td>{{ item.S_DEF }}</td>
+        <td>{{ item.S_DEF }}
+        {% if item.DEF <= item.S_DEF %}
+        <span uk-icon="icon: star"></span>
+        {% endif %}
+        </td>
         {%- endfor %}
     </tr>
     <tr>
