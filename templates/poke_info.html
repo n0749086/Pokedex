@@ -27,6 +27,22 @@
         <td>すばやさ</td>
         <td>{{ info.SPD }}</td>
     </tr>
+    <tr>
+        <td>とくせい</td>
+        <td>{{ info.abi1 }}</td>
+    </tr>
+    <tr>
+        <td>とくせい2</td>
+        {% if info.abi2 %}
+        <td>{{ info.abi2 }}</td>
+        {% else %}
+        <td>-</td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td>とくせい(夢))</td>
+        <td>{{ info.abiD }}</td>
+    </tr>
 </tbody>
 </table>
 {% endblock %}
