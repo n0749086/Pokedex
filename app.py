@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import os
 from pokedex import Pokedex
 
@@ -8,8 +8,12 @@ app = Flask(__name__)
 def get_poke_info():
     pokedex = Pokedex()
     poke_name = pokedex.get_poke_name_list()
+    name = request.args.get('name')
+    if name != None:
+        tgt_name = name
+    else:
+        tgt_name = poke_name[0]
 
-    tgt_name = poke_name[0]
     title = "{}のステータス".format(tgt_name)
     poke_status = pokedex.get_poke_info(tgt_name)
     poke_status["name"] = tgt_name

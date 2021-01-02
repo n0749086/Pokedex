@@ -28,7 +28,7 @@ class Pokedex:
                 data["S_DEF"] = int(row[11])
                 data["SPD"] = int(row[12])
 
-                self.poke_list[name] = data
+                self.poke_list[name] = data.copy()
                 self.poke_name_list.append(name)
         with open("poke.pkl", "wb") as f:
             l = [self.poke_name_list, self.poke_list]
