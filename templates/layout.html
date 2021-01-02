@@ -13,5 +13,15 @@
 {% block content %}
 <!-- ここにメインコンテンツを書く -->
 {% endblock %}
+<hr>
+<form class="uk-search uk-search-default">
+    <span uk-search-icon></span>
+    <input class="uk-search-input" type="search" placeholder="" list="poke_list">
+</form>
 </body>
+<datalist id="poke_list">
+    {% for item in name_list -%}
+        <option value="{{ item }}"></option>
+    {%- endfor %}
+</datalist>
 </html>
