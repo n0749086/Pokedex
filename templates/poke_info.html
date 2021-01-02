@@ -1,31 +1,31 @@
 {% extends "layout.html" %}
 {% block content %}
-<h3>なまえ：{{ name }}</h3>
+<h3>なまえ：{{ info.name }}</h3>
 <table class="uk-table uk-table-striped uk-table-small uk-table-justify uk-table-responsive">
 <tbody>
     <tr>
         <td>HP</td>
-        <td>{{ hp_val }}</td>
+        <td>{{ info.HP }}</td>
     </tr>
     <tr>
         <td>こうげき</td>
-        <td>{{ atk_val }}</td>
+        <td>{{ info.ATK }}</td>
     </tr>
     <tr>
         <td>ぼうぎょ</td>
-        <td>{{ def_val }}</td>
+        <td>{{ info.DEF }}</td>
     </tr>
     <tr>
         <td>とくこう</td>
-        <td>{{ sp_atk_val }}</td>
+        <td>{{ info.S_ATK }}</td>
     </tr>
     <tr>
         <td>ぼうぎょ</td>
-        <td>{{ sp_def_val }}</td>
+        <td>{{ info.S_DEF }}</td>
     </tr>
     <tr>
         <td>すばやさ</td>
-        <td>{{ spd_val }}</td>
+        <td>{{ info.SPD }}</td>
     </tr>
 </tbody>
 </table>

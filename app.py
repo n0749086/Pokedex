@@ -8,8 +8,13 @@ app = Flask(__name__)
 def get_poke_info():
     pokedex = Pokedex()
     poke_name = pokedex.get_poke_name_list()
-    title = "{}のステータス"
-    return render_template('poke_info.html', title=title, name=poke_name[0], name_list=poke_name)
+
+    tgt_name = poke_name[0]
+    title = "{}のステータス".format(tgt_name)
+    poke_status = pokedex.get_poke_info(tgt_name)
+    poke_status["name"] = tgt_name
+
+    return render_template('poke_info.html', title=title, info=poke_status, name_list=poke_name)
 
 
 if __name__ == "__main__":
