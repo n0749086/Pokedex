@@ -4,44 +4,72 @@
 <table class="uk-table uk-table-striped uk-table-small uk-table-justify uk-table-responsive">
 <tbody>
     <tr>
+        <td>なまえ</td>
+        {% for item in info -%}
+        <td>{{ item.name }}</td>
+        {%- endfor %}
+    </tr>
+    <tr>
         <td>HP</td>
-        <td>{{ info.HP }}</td>
+        {% for item in info -%}
+        <td>{{ item.HP }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>こうげき</td>
-        <td>{{ info.ATK }}</td>
+        {% for item in info -%}
+        <td>{{ item.ATK }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>ぼうぎょ</td>
-        <td>{{ info.DEF }}</td>
+        {% for item in info -%}
+        <td>{{ item.DEF }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>とくこう</td>
-        <td>{{ info.S_ATK }}</td>
+        {% for item in info -%}
+        <td>{{ item.S_ATK }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>ぼうぎょ</td>
-        <td>{{ info.S_DEF }}</td>
+        {% for item in info -%}
+        <td>{{ item.S_DEF }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>すばやさ</td>
-        <td>{{ info.SPD }}</td>
+        {% for item in info -%}
+        <td>{{ item.SPD }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>とくせい</td>
-        <td>{{ info.abi1 }}</td>
+        {% for item in info -%}
+        <td>{{ item.abi1 }}</td>
+        {%- endfor %}
     </tr>
     <tr>
         <td>とくせい2</td>
-        {% if info.abi2 %}
-        <td>{{ info.abi2 }}</td>
-        {% else %}
-        <td>-</td>
-        {% endif %}
+        {% for item in info -%}
+            {% if item.abi2 %}
+            <td>{{ item.abi2 }}</td>
+            {% else %}
+            <td>-</td>
+            {% endif %}
+        {%- endfor %}
     </tr>
     <tr>
         <td>とくせい(夢))</td>
-        <td>{{ info.abiD }}</td>
+        {% for item in info -%}
+            {% if item.abiD %}
+            <td>{{ item.abiD }}</td>
+            {% else %}
+            <td>-</td>
+            {% endif %}
+        {%- endfor %}
     </tr>
 </tbody>
 </table>

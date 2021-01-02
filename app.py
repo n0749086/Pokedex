@@ -16,7 +16,6 @@ def get_poke_info():
 
     title = "{}のステータス".format(tgt_name)
     poke_status = pokedex.get_poke_info(tgt_name)
-    poke_status["name"] = tgt_name
 
     return render_template('poke_info.html', title=title, info=poke_status, name_list=poke_name)
 

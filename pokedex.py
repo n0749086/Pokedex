@@ -44,7 +44,13 @@ class Pokedex:
         return self.poke_name_list
 
     def get_poke_info(self, name):
-        return self.poke_list[name]
+        result = []
+        for k, v in self.poke_list.items():
+            if name in k:
+                data = v.copy()
+                data["name"] = k
+                result.append(data)
+        return result
 
 
 if __name__ == "__main__":
