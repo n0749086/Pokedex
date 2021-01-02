@@ -14,6 +14,12 @@
 <!-- ここにメインコンテンツを書く -->
 {% endblock %}
 
+<h3>使い方</h3>
+<ul class="uk-list uk-list-square">
+    <li>検索は部分一致(リザードン -> リザードン, メガリザードンX,Yがヒット)</li>
+    <li>こうげき/とくこう、ぼうぎょ/とくぼうで、高い方の値に、<span uk-icon="icon: star"></span>を付与</li>
+</ul>
+
 <form class="uk-search uk-search-default" method="GET" action="">
     <input class="uk-search-input uk-align-left" type="search" placeholder="" list="poke_list" name="name">
     <button class="uk-button uk-button-default">検索</button>

@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h3>{{ title }}</h3>
+<h2>{{ title }}</h2>
 <div class="uk-overflow-auto">
     <table class="uk-table uk-table-striped uk-table-small">
     <thead>
@@ -81,7 +81,7 @@
             {%- endfor %}
         </tr>
         <tr>
-            <td>とくせい(夢))</td>
+            <td>とくせい(夢)</td>
             {% for item in info -%}
                 {% if item.abiD %}
                 <td>{{ item.abiD }}</td>

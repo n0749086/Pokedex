@@ -1,5 +1,7 @@
 import pickle
 import csv
+
+
 class Pokedex:
     poke_list = {}
     poke_name_list = []
