@@ -26,6 +26,7 @@ class Pokedex:
                 data["DEF"] = int(row[9])
                 data["S_ATK"] = int(row[10])
                 data["S_DEF"] = int(row[11])
+                data["SPD"] = int(row[12])
 
                 self.poke_list[name] = data
                 self.poke_name_list.append(name)
@@ -35,10 +36,13 @@ class Pokedex:
 
     def __init__(self):
         self.load_poke_data_pkl()
-        # self.load_poke_data_csv()
+        #self.load_poke_data_csv()
 
     def get_poke_name_list(self):
         return self.poke_name_list
+
+    def get_poke_info(self, name):
+        return self.poke_list[name]
 
 
 if __name__ == "__main__":
