@@ -67,14 +67,14 @@
         <tr>
             <td>とくせい</td>
             {% for item in info -%}
-            <td>{{ item.abi1 }}</td>
+            <td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abi1 }}" target="_blank">{{ item.abi1 }}</a></td>
             {%- endfor %}
         </tr>
         <tr>
             <td>とくせい2</td>
             {% for item in info -%}
                 {% if item.abi2 %}
-                <td>{{ item.abi2 }}</td>
+                <td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abi2 }}" target="_blank">{{ item.abi2 }}</a></td>
                 {% else %}
                 <td>-</td>
                 {% endif %}
@@ -84,7 +84,7 @@
             <td>とくせい(夢)</td>
             {% for item in info -%}
                 {% if item.abiD %}
-                <td>{{ item.abiD }}</td>
+                    <td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abiD }}" target="_blank">{{ item.abiD }}</a></td>
                 {% else %}
                 <td>-</td>
                 {% endif %}
