@@ -90,6 +90,16 @@
                 {% endif %}
             {%- endfor %}
         </tr>
+        <tr>
+            <td>タイプ</td>
+            {% for item in info -%}
+                <td>{{ item.type1 }}
+                {% if item.type2 %}
+                /{{ item.type2 }}
+                {% endif %}
+                </td>
+            {%- endfor %}
+        </tr>
     </tbody>
     </table>
 </div>
