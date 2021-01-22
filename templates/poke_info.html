@@ -7,7 +7,8 @@
         <tr>
             <td>なまえ</td>
             {% for item in info -%}
-            <td>{{ item.name }}</td>
+            <td>{{ item.name }}<br>
+            <img src="{{ item.img_path }}"></td>
             {%- endfor %}
         </tr>
     </thead>
