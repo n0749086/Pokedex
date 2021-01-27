@@ -9,6 +9,7 @@ class Pokedex(object):
 
     def load_poke_data_pkl(self):
         self.poke_name_list, self.poke_list = pickle.load(open("poke.pkl", "rb"))
+        self.poke_name_list = self.replace_poke_name(self.poke_name_list, True)
 
     #図鑑番号,ポケモン名,タイプ１,タイプ２,通常特性１,通常特性２,夢特性,HP,こうげき,ぼうぎょ,とくこう,とくぼう,すばやさ,合計
     def load_poke_data_csv(self):
@@ -46,14 +47,31 @@ class Pokedex(object):
     def get_poke_name_list(self):
         return self.poke_name_list
 
+    def replace_poke_name(self, names, shorten):
+        replace_lists = (
+            (":A", "<ア>", "(アローラ)"),
+        )
+        result = []
+
+        for i in names:
+            for j in replace_lists:
+                if j[0] in i:
+                    if shorten:
+                        result.append(i.replace(j[0], j[1]))
+                    else:
+                        result.append(i.replace(j[0], j[2]))
+                else:
+                    result.append(i)
+
+        return result
+
     def get_poke_info(self, name):
         result = []
         img_data = PokeImgPokedex()
         for k, v in self.poke_list.items():
             if name in k:
                 data = v.copy()
-                data["name"] = k
-                data["img_path"], data["img_size"] = img_hiko.get_poke_img_path(data["no"], data["name"])
+                data["name"] = self.replace_poke_name((k, ), False)[0]
                 data["img_path"], data["img_size"] = img_data.get_poke_img_path(data["no"], data["name"])
                 result.append(data)
         return result
