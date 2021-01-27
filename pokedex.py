@@ -1,6 +1,6 @@
 import pickle
 import csv
-from poke_img_hiko import PokeImgHiko
+from poke_img_pokedex import PokeImgPokedex
 
 
 class Pokedex(object):
@@ -48,12 +48,12 @@ class Pokedex(object):
 
     def get_poke_info(self, name):
         result = []
-        img_hiko = PokeImgHiko()
+        img_hiko = PokeImgPokedex()
         for k, v in self.poke_list.items():
             if name in k:
                 data = v.copy()
                 data["name"] = k
-                data["img_path"] = img_hiko.get_poke_img_path(data["no"], data["name"])
+                data["img_path"], data["img_size"] = img_hiko.get_poke_img_path(data["no"], data["name"])
                 result.append(data)
         return result
 

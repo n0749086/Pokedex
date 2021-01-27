@@ -4,6 +4,7 @@ from poke_img import PokeImg
 class PokeImgHiko(PokeImg):
     def __init__(self):
         self.base_path = 'https://hikochans.com/material/iconxy/'
+        self.img_size = 10
 
     def conv_poke_no(self, pokedex_no, poke_name):
         self.get_poke_no_attr(pokedex_no, poke_name)
@@ -13,4 +14,4 @@ class PokeImgHiko(PokeImg):
 
         path = "{}{}.png".format(self.base_path, self.poke_info["no"])
 
-        return path
+        return path, self.img_size
