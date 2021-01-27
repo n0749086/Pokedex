@@ -8,7 +8,7 @@ import json
 class PokeImgPokedex(PokeImg):
     def __init__(self):
         self.base_path = 'https://zukan.pokemon.co.jp/zukan-api/up/images/index/'
-        self.img_size = 20
+        self.img_size = 100
 
     def get_poke_img_path_from_hp(self, pokedex_no):
         base_uri = 'https://zukan.pokemon.co.jp/detail/'
