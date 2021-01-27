@@ -41,6 +41,9 @@ class Pokedex(object):
             pickle.dump(l, f)
 
     def __init__(self):
+        self.replace_lists = (
+            (":A", "<ア>", "(アローラ)"),
+        )
         self.load_poke_data_pkl()
         #self.load_poke_data_csv()
 
@@ -48,13 +51,10 @@ class Pokedex(object):
         return self.poke_name_list
 
     def replace_poke_name(self, names, shorten):
-        replace_lists = (
-            (":A", "<ア>", "(アローラ)"),
-        )
         result = []
 
         for i in names:
-            for j in replace_lists:
+            for j in self.replace_lists:
                 if j[0] in i:
                     if shorten:
                         result.append(i.replace(j[0], j[1]))
@@ -65,11 +65,20 @@ class Pokedex(object):
 
         return result
 
+    def rebase_poke_name(self, name):
+        result = name
+
+        for j in self.replace_lists:
+            if j[1] in name:
+                result = name.replace(j[1], j[0])
+        return result
+
     def get_poke_info(self, name):
         result = []
         img_data = PokeImgPokedex()
+        name_rebased = self.rebase_poke_name(name)
         for k, v in self.poke_list.items():
-            if name in k:
+            if name_rebased in k:
                 data = v.copy()
                 data["name"] = self.replace_poke_name((k, ), False)[0]
                 data["img_path"], data["img_size"] = img_data.get_poke_img_path(data["no"], data["name"])
