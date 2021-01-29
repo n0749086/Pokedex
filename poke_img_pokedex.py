@@ -19,10 +19,9 @@ class PokeImgPokedex(PokeImg):
         r = requests.get(target_uri)
         soup = BeautifulSoup(r.text, 'lxml')
 
-        data = "fuga"
-        for a in soup.find_all('script', attrs={"id": "json-data"}):
-            data = json.loads(a.string)
-            img_path = data["pokemon"]["image_s"]
+        data = json.loads(soup.find('script', attrs={"id": "json-data"}).string)
+        img_path = data["pokemon"]["image_s"]
+
         return img_path
 
     def get_poke_img_path(self, pokedex_no, poke_name):
