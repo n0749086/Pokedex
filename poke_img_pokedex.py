@@ -4,7 +4,6 @@ from bs4 import BeautifulSoup
 import json
 
 
-
 class PokeImgPokedex(PokeImg):
     def __init__(self):
         self.base_path = 'https://zukan.pokemon.co.jp/zukan-api/up/images/index/'
@@ -25,7 +24,6 @@ class PokeImgPokedex(PokeImg):
             data = json.loads(a.string)
             img_path = data["pokemon"]["image_s"]
         return img_path
-
 
     def get_poke_img_path(self, pokedex_no, poke_name):
         url = self.get_poke_img_path_from_hp(pokedex_no)

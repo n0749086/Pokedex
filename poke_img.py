@@ -17,4 +17,4 @@ class PokeImg(object):
         else:
             poke_info["no"] = poke_no_attr[0]
 
-        self.poke_info = poke_info
+        return poke_info
