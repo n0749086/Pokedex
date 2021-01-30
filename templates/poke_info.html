@@ -26,41 +26,46 @@
         <tr>
             <td>こうげき</td>
             {% for item in info -%}
-            <td>{{ item.ATK }}
-            {% if item.ATK >= item.S_ATK %}
-            <span uk-icon="icon: star"></span>
-            {% endif %}
+            <td>
+            {% if item.ATK >= item.S_ATK %}<div class="uk-text-bold">{% else %}<div>{% endif %}
+                {{ item.ATK }}
+            {% if item.ATK >= item.S_ATK %}<span uk-icon="icon: star"></span>{% endif %}
+            </div>
             </td>
             {%- endfor %}
         </tr>
         <tr>
             <td>ぼうぎょ</td>
             {% for item in info -%}
-            <td>{{ item.DEF }}
-            {% if item.DEF >= item.S_DEF %}
-            <span uk-icon="icon: star"></span>
-            {% endif %}
-            </td>
+            <td>
+            {% if item.DEF >= item.S_DEF %}<div class="uk-text-bold">{% else %}<div>{% endif %}
+                {{ item.DEF }}
+            {% if item.DEF >= item.S_DEF %}<span uk-icon="icon: star"></span>{% endif %}
+            </div></td>
             {%- endfor %}
         </tr>
         <tr>
             <td>とくこう</td>
             {% for item in info -%}
-            <td>{{ item.S_ATK }}
+            <td>
+            {% if item.ATK <= item.S_ATK %}<div class="uk-text-bold">{% else %}<div>{% endif %}
+                {{ item.S_ATK }}
             {% if item.ATK <= item.S_ATK %}
             <span uk-icon="icon: star"></span>
             {% endif %}
-            </td>
+            </div></td>
             {%- endfor %}
         </tr>
         <tr>
             <td>とくぼう</td>
             {% for item in info -%}
-            <td>{{ item.S_DEF }}
+            <td>
+            {% if item.DEF <= item.S_DEF %}<div class="uk-text-bold">{% else %}<div>{% endif %}
+                {{ item.S_DEF }}
             {% if item.DEF <= item.S_DEF %}
             <span uk-icon="icon: star"></span>
             {% endif %}
-            </td>
+            </div></td>
             {%- endfor %}
         </tr>
         <tr>
