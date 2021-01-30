@@ -7,7 +7,7 @@
         <tr>
             <td rowspan="2">なまえ</td>
             {% for item in info -%}
-                <td>{{ item.name }}</td>
+                <td><a href="./?name={{ item.name }}">{{ item.name }}</a></td>
             {%- endfor %}
         </tr>
         <tr>
