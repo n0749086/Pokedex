@@ -5,13 +5,12 @@
     <table class="uk-table uk-table-striped uk-table-small">
     <thead>
         <tr>
-            <td>なまえ</td>
+            <td rowspan="2">なまえ</td>
             {% for item in info -%}
                 <td>{{ item.name }}</td>
             {%- endfor %}
         </tr>
         <tr>
-            <td></td>
             {% for item in info -%}
                 <td><img data-src="{{ item.img_path }}" width="{{ item.img_size }}" height="{{ item.img_size }}" uk-img></td>
             {%- endfor %}
