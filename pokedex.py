@@ -111,6 +111,7 @@ class Pokedex(object):
             if name_rebased in k:
                 data = v.copy()
                 data["name"] = self.replace_poke_name((k, ), False)[0]
+                data["name_search"] = k
                 data["img_path"], data["img_size"] = img_data.get_poke_img_path(data["no"], data["name"])
                 result.append(data)
         return result
