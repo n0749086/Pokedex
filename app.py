@@ -4,12 +4,17 @@ from pokedex import Pokedex
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def get_poke_info():
+    """
+    リクエストのポケモン名をベースに検索結果を返す（部分一致）
+    :return: HTMLデータ
+    """
     pokedex = Pokedex()
     poke_name = pokedex.get_poke_name_list()
     name = request.args.get('name')
-    if name != None:
+    if name is not None:
         tgt_name = name
     else:
         tgt_name = poke_name[0]

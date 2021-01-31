@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/html5reset-1.6.1.min.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/html5reset-1.6.1.min.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/uikit.min.css') }}" />
-    <script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/uikit-icons.min.js') }}"></script>
 </head>
 <body>
+<!-- ポケモン情報を表示 -->
 {% block content %}
-<!-- ここにメインコンテンツを書く -->
 {% endblock %}
 
+<!-- Usage -->
 <h3>使い方</h3>
 <ul class="uk-list uk-list-square">
     <li>検索は部分一致(リザードン -> リザードン, メガリザードンX,Yがヒット)</li>
@@ -21,11 +20,15 @@
     <li>リージョンフォルムは、略称で表記(ア→アローラのすがた)</li>
 </ul>
 
+<!-- 検索 -->
 <form class="uk-search uk-search-default" method="GET" action="">
     <input class="uk-search-input uk-align-left" type="search" placeholder="" list="poke_list" name="name">
     <button class="uk-button uk-button-default">検索</button>
 </form>
+<script src="{{ url_for('static', filename='js/uikit.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/uikit-icons.min.js') }}"></script>
 </body>
+
 <!-- サジェスト用 -->
 <datalist id="poke_list">
     {% for item in name_list -%}

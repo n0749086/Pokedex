@@ -3,6 +3,7 @@
 <h2>{{ title }}</h2>
 <div class="uk-overflow-auto">
     <table class="uk-table uk-table-striped uk-table-small">
+    <!-- ポケモンの名前・画像 -->
     <thead>
         <tr>
             <td rowspan="2">なまえ</td>
@@ -16,6 +17,7 @@
             {%- endfor %}
         </tr>
     </thead>
+    <!-- ポケモンの詳細 -->
     <tbody>
         <tr>
             <td>HP</td>
@@ -83,31 +85,21 @@
         <tr>
             <td>とくせい2</td>
             {% for item in info -%}
-                {% if item.abi2 %}
-                <td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abi2 }}" target="_blank">{{ item.abi2 }}</a></td>
-                {% else %}
-                <td>-</td>
-                {% endif %}
+                {% if item.abi2 %}<td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abi2 }}" target="_blank">{{ item.abi2 }}</a></td>
+                {% else %}<td>-</td>{% endif %}
             {%- endfor %}
         </tr>
         <tr>
             <td>とくせい(夢)</td>
             {% for item in info -%}
-                {% if item.abiD %}
-                    <td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abiD }}" target="_blank">{{ item.abiD }}</a></td>
-                {% else %}
-                <td>-</td>
-                {% endif %}
+                {% if item.abiD %}<td><a href="https://wiki.xn--rckteqa2e.com/wiki/{{ item.abiD }}" target="_blank">{{ item.abiD }}</a></td>
+                {% else %}<td>-</td>{% endif %}
             {%- endfor %}
         </tr>
         <tr>
             <td>タイプ</td>
             {% for item in info -%}
-                <td>{{ item.type1 }}
-                {% if item.type2 %}
-                /{{ item.type2 }}
-                {% endif %}
-                </td>
+                <td>{{ item.type1 }}{% if item.type2 %}/{{ item.type2 }}{% endif %}</td>
             {%- endfor %}
         </tr>
     </tbody>
